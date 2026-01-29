@@ -316,34 +316,41 @@
             }
         }
 
-        /* 출력 스타일 - A4 1페이지 최적화 */
+        /* 출력 스타일 - A4 2페이지 최적화 */
         @media print {
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
             body {
                 background: white;
                 padding: 0;
-                font-size: 7pt;
+                margin: 0;
+                font-size: 6pt;
+                line-height: 1.1;
             }
 
             .container {
                 max-width: 100%;
-                padding: 8px;
+                padding: 3mm;
                 box-shadow: none;
                 margin: 0;
             }
 
             .header {
-                margin-bottom: 4px;
-                padding-bottom: 4px;
-                border-bottom: 2px solid #1a5490;
+                margin-bottom: 2mm;
+                padding-bottom: 2mm;
+                border-bottom: 1px solid #1a5490;
                 display: flex !important;
                 flex-direction: row !important;
                 align-items: center !important;
-                gap: 10px;
+                gap: 5px;
             }
 
             .logo {
-                width: 30px;
-                height: 30px;
+                width: 25px;
+                height: 25px;
                 margin: 0 !important;
                 flex-shrink: 0;
             }
@@ -354,131 +361,63 @@
             }
 
             h1 {
-                font-size: 14pt;
-                margin-bottom: 1px;
+                font-size: 12pt;
+                margin: 0;
+                line-height: 1.2;
             }
 
             .subtitle {
-                font-size: 7pt;
+                font-size: 6pt;
+                margin: 0;
             }
 
             .basic-info {
                 grid-template-columns: repeat(6, 1fr);
-                gap: 4px;
-                margin-bottom: 6px;
-                padding: 4px;
+                gap: 2mm;
+                margin-bottom: 2mm;
+                padding: 2mm;
                 background: #f8f9fa;
             }
 
+            .info-group {
+                margin-bottom: 0;
+            }
+
             .info-group label {
-                font-size: 7pt;
-                margin-bottom: 2px;
+                font-size: 6pt;
+                margin-bottom: 1px;
                 font-weight: bold;
+                line-height: 1.1;
             }
 
             .info-group input,
             .info-group select {
-                padding: 3px;
-                font-size: 7pt;
-                border: 1px solid #999;
-            }
-
-            .activity-section {
-                margin-bottom: 4px;
-                page-break-inside: avoid;
-            }
-
-            .category-header {
-                padding: 3px 6px;
-                font-size: 8pt;
-                margin-bottom: 3px;
-            }
-
-            .category-total {
-                padding: 2px 6px;
-                font-size: 9pt;
-                font-weight: bold;
-            }
-
-            .items-grid {
-                grid-template-columns: repeat(6, 1fr);
-                gap: 3px;
-                padding: 0 3px;
-            }
-
-            .item label {
+                padding: 1px 2px;
                 font-size: 6pt;
-                margin-bottom: 1px;
-                line-height: 1.2;
+                border: 0.5px solid #999;
+                line-height: 1.1;
             }
 
-            .item input {
-                padding: 2px;
-                font-size: 7pt;
-                border: 1px solid #999;
-                text-align: center;
-            }
-
-            .signature {
-                margin: 4px 0 0 0;
-                padding: 5px;
-                page-break-inside: avoid;
-                border: 1px solid #1a5490;
-            }
-
-            .signature-text {
-                font-size: 8pt;
-                margin-bottom: 3px;
-                font-weight: bold;
-            }
-
-            .signature-info {
-                gap: 15px;
-                flex-direction: row;
-            }
-
-            .signature-item {
-                font-size: 7pt;
-                gap: 3px;
-            }
-
-            .signature-item label {
-                font-weight: bold;
-            }
-
-            .signature-item input {
-                padding: 2px 5px;
-                font-size: 7pt;
-                min-width: 60px;
-                border: 1px solid #999;
-            }
-
-            .btn-container {
-                display: none;
-            }
-
-            .loading {
-                display: none !important;
-            }
-
-            /* 페이지 1 섹션 최적화 (1~7번 섹션) */
+            /* 페이지 1 섹션 최적화 */
             .section {
-                margin-bottom: 4px;
-                padding: 4px;
-                border: 1px solid #1a5490;
+                margin-bottom: 1.5mm;
+                padding: 2mm;
+                border: 0.5px solid #1a5490;
                 page-break-inside: avoid;
             }
 
             .section-title {
-                font-size: 8pt;
-                margin-bottom: 3px;
-                padding: 3px;
+                font-size: 7pt;
+                margin-bottom: 1mm;
+                padding: 1mm;
                 font-weight: bold;
+                line-height: 1.1;
+                background: #e3f2fd;
             }
 
             .form-row {
-                gap: 4px;
-                margin-bottom: 3px;
+                gap: 2mm;
+                margin-bottom: 1mm;
             }
 
             .form-group {
@@ -486,45 +425,52 @@
             }
 
             .form-group label {
-                font-size: 7pt;
-                margin-bottom: 2px;
+                font-size: 6pt;
+                margin-bottom: 1px;
                 font-weight: bold;
+                line-height: 1.1;
             }
 
             .form-group input[type="text"],
             .form-group input[type="number"],
             .form-group input[type="date"],
             .form-group select {
-                padding: 2px 4px;
-                font-size: 7pt;
-                border: 1px solid #999;
-                min-height: auto;
-                height: auto;
+                padding: 1px 2px;
+                font-size: 6pt;
+                border: 0.5px solid #999;
+                min-height: 12px;
+                height: 12px;
+                line-height: 1.1;
             }
 
             /* 테이블 최적화 */
             table {
-                margin-top: 3px;
+                margin-top: 1mm;
+                border-collapse: collapse;
             }
 
             table th,
             table td {
-                padding: 2px 3px;
-                font-size: 7pt;
-                border: 1px solid #1a5490;
+                padding: 1mm;
+                font-size: 6pt;
+                border: 0.5px solid #1a5490;
+                line-height: 1.1;
             }
 
             table th {
-                font-size: 7pt;
+                font-size: 6pt;
                 font-weight: bold;
+                background: #1a5490;
+                color: white;
             }
 
             table input[type="text"],
             table input[type="number"],
             table input[type="date"] {
-                padding: 1px 2px;
-                font-size: 6pt;
-                border: 1px solid #999;
+                padding: 0.5mm;
+                font-size: 5pt;
+                border: 0.5px solid #999;
+                line-height: 1.1;
             }
 
             /* 간부명단 테이블 */
@@ -535,33 +481,118 @@
             .officer-table th:nth-child(5) { width: 30%; }
 
             /* 단원현황 테이블 */
-            .member-table th { font-size: 6pt; }
-            .member-table td { font-size: 6pt; }
+            .member-table th { font-size: 5pt; }
+            .member-table td { font-size: 5pt; }
 
             /* 주요사항 테이블 */
-            .event-table th { font-size: 6pt; }
-            .event-table td { font-size: 6pt; }
+            .event-table th { font-size: 5pt; }
+            .event-table td { font-size: 5pt; }
 
             /* 회계보고 테이블 */
-            .finance-table th { font-size: 7pt; }
-            .finance-table td { font-size: 6pt; }
+            .finance-table th { font-size: 6pt; }
+            .finance-table td { font-size: 5pt; }
+
+            /* 페이지 2 활동항목 최적화 */
+            .activity-section {
+                margin-bottom: 2mm;
+                page-break-inside: avoid;
+            }
+
+            .category-header {
+                padding: 1mm 2mm;
+                font-size: 7pt;
+                margin-bottom: 1mm;
+                line-height: 1.1;
+            }
+
+            .category-total {
+                padding: 1mm 2mm;
+                font-size: 7pt;
+                font-weight: bold;
+                line-height: 1.1;
+            }
+
+            .items-grid {
+                grid-template-columns: repeat(6, 1fr);
+                gap: 1.5mm;
+                padding: 0 1mm;
+            }
+
+            .item label {
+                font-size: 5pt;
+                margin-bottom: 0.5mm;
+                line-height: 1.1;
+            }
+
+            .item input {
+                padding: 0.5mm;
+                font-size: 6pt;
+                border: 0.5px solid #999;
+                text-align: center;
+                line-height: 1.1;
+            }
+
+            .signature {
+                margin: 2mm 0 0 0;
+                padding: 2mm;
+                page-break-inside: avoid;
+                border: 0.5px solid #1a5490;
+            }
+
+            .signature-text {
+                font-size: 7pt;
+                margin-bottom: 1mm;
+                font-weight: bold;
+                line-height: 1.1;
+            }
+
+            .signature-info {
+                gap: 10px;
+                flex-direction: row;
+            }
+
+            .signature-item {
+                font-size: 6pt;
+                gap: 2px;
+                line-height: 1.1;
+            }
+
+            .signature-item label {
+                font-weight: bold;
+            }
+
+            .signature-item input {
+                padding: 1px 3px;
+                font-size: 6pt;
+                min-width: 50px;
+                border: 0.5px solid #999;
+                line-height: 1.1;
+            }
+
+            .btn-container {
+                display: none;
+            }
+
+            .loading {
+                display: none !important;
+            }
 
             /* 페이지 분리 - 회계보고 다음에 페이지 나누기 */
             .section:nth-of-type(7) {
                 page-break-after: always;
             }
 
-            /* 첫 번째 페이지 최적화 */
+            /* A4 용지 설정 */
             @page {
-                size: A4;
-                margin: 8mm;
+                size: A4 portrait;
+                margin: 6mm;
             }
 
             /* 특정 카테고리별 최적화 */
             #total_cat1, #total_cat2, #total_cat3, #total_cat4, 
             #total_cat5, #total_cat6, #total_cat7, #total_cat8,
             #total_cat9, #total_cat10, #total_cat11, #total_cat12 {
-                font-size: 9pt;
+                font-size: 7pt;
             }
         }
 
