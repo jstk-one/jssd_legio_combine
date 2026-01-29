@@ -461,6 +461,102 @@
                 display: none !important;
             }
 
+            /* 페이지 1 섹션 최적화 (1~7번 섹션) */
+            .section {
+                margin-bottom: 4px;
+                padding: 4px;
+                border: 1px solid #1a5490;
+                page-break-inside: avoid;
+            }
+
+            .section-title {
+                font-size: 8pt;
+                margin-bottom: 3px;
+                padding: 3px;
+                font-weight: bold;
+            }
+
+            .form-row {
+                gap: 4px;
+                margin-bottom: 3px;
+            }
+
+            .form-group {
+                margin-bottom: 0;
+            }
+
+            .form-group label {
+                font-size: 7pt;
+                margin-bottom: 2px;
+                font-weight: bold;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="number"],
+            .form-group input[type="date"],
+            .form-group select {
+                padding: 2px 4px;
+                font-size: 7pt;
+                border: 1px solid #999;
+                min-height: auto;
+                height: auto;
+            }
+
+            /* 테이블 최적화 */
+            table {
+                margin-top: 3px;
+            }
+
+            table th,
+            table td {
+                padding: 2px 3px;
+                font-size: 7pt;
+                border: 1px solid #1a5490;
+            }
+
+            table th {
+                font-size: 7pt;
+                font-weight: bold;
+            }
+
+            table input[type="text"],
+            table input[type="number"],
+            table input[type="date"] {
+                padding: 1px 2px;
+                font-size: 6pt;
+                border: 1px solid #999;
+            }
+
+            /* 간부명단 테이블 */
+            .officer-table th:nth-child(1) { width: 12%; }
+            .officer-table th:nth-child(2) { width: 18%; }
+            .officer-table th:nth-child(3) { width: 18%; }
+            .officer-table th:nth-child(4) { width: 22%; }
+            .officer-table th:nth-child(5) { width: 30%; }
+
+            /* 단원현황 테이블 */
+            .member-table th { font-size: 6pt; }
+            .member-table td { font-size: 6pt; }
+
+            /* 주요사항 테이블 */
+            .event-table th { font-size: 6pt; }
+            .event-table td { font-size: 6pt; }
+
+            /* 회계보고 테이블 */
+            .finance-table th { font-size: 7pt; }
+            .finance-table td { font-size: 6pt; }
+
+            /* 페이지 분리 - 회계보고 다음에 페이지 나누기 */
+            .section:nth-of-type(7) {
+                page-break-after: always;
+            }
+
+            /* 첫 번째 페이지 최적화 */
+            @page {
+                size: A4;
+                margin: 8mm;
+            }
+
             /* 특정 카테고리별 최적화 */
             #total_cat1, #total_cat2, #total_cat3, #total_cat4, 
             #total_cat5, #total_cat6, #total_cat7, #total_cat8,
