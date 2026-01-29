@@ -510,6 +510,26 @@
             font-size: 14px;
         }
 
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group input[type="date"],
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            min-height: 46px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #1a5490;
+            background: #f0f7ff;
+        }
+
         .page-separator {
             text-align: center;
             margin: 20px 0;
@@ -676,11 +696,6 @@
                     <label for="writer_leader">단장</label>
                     <input type="text" id="writer_leader" required>
                 </div>
-            </div>
-
-            <!-- 페이지 구분 표시 -->
-            <div class="page-separator">
-                <span>━━━━━━━━ 페이지 1 ━━━━━━━━</span>
             </div>
 
             <!-- 1. 주회합 일시 -->
@@ -948,10 +963,7 @@
                 </div>
             </div>
 
-            <!-- 페이지 구분 표시 -->
-            <div class="page-separator" style="margin-top: 30px;">
-                <span>━━━━━━━━ 페이지 2 (활동항목) ━━━━━━━━</span>
-            </div>
+
 
 <!-- 활동 카테고리 1 -->
             <div class="activity-section">
@@ -1447,7 +1459,7 @@
 
     <script>
         // 관리자가 설정하는 구글 스프레드시트 URL
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby9NgOa_yC8BZllbcSyV44BRHsU9UN6s3DTuPQ-Bto-k2cyaphJHAOzrmRNoATadCEa1Q/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw-08kmlZt7L_pg3ghBVXB9PUFTg10AjIa5kvmR_nf71vyewAszI6eycKwInTv14GQkhQ/exec';
 
         // 카테고리별 항목 개수
         const CATEGORY_COUNTS = {
@@ -1535,28 +1547,28 @@
             document.getElementById('finance_balance').value = balance;
         }
 
-        // 단원현황 입력 필드에 이벤트 리스너 추가
-        const memberInputs = [
-            'prev_active_m', 'prev_active_f', 'prev_pret', 'prev_coop_m', 'prev_coop_f', 'prev_adj',
-            'curr_active_m', 'curr_active_f', 'curr_pret', 'curr_coop_m', 'curr_coop_f', 'curr_adj'
-        ];
-        memberInputs.forEach(id => {
-            const element = document.getElementById(id);
-            if (element) {
-                element.addEventListener('input', calculateMemberStats);
-            }
-        });
-
-        // 회계보고 입력 필드에 이벤트 리스너 추가
-        const financeInputs = ['finance_carry', 'finance_income', 'expense1_amount', 'expense2_amount', 'expense3_amount'];
-        financeInputs.forEach(id => {
-            const element = document.getElementById(id);
-            if (element) {
-                element.addEventListener('input', calculateFinance);
-            }
-        });
-
         document.addEventListener('DOMContentLoaded', function() {
+            // 단원현황 입력 필드에 이벤트 리스너 추가
+            const memberInputs = [
+                'prev_active_m', 'prev_active_f', 'prev_pret', 'prev_coop_m', 'prev_coop_f', 'prev_adj',
+                'curr_active_m', 'curr_active_f', 'curr_pret', 'curr_coop_m', 'curr_coop_f', 'curr_adj'
+            ];
+            memberInputs.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', calculateMemberStats);
+                }
+            });
+
+            // 회계보고 입력 필드에 이벤트 리스너 추가
+            const financeInputs = ['finance_carry', 'finance_income', 'expense1_amount', 'expense2_amount', 'expense3_amount'];
+            financeInputs.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', calculateFinance);
+                }
+            });
+
             console.log('페이지 로드 완료');
             
             // 현재 연도와 월 설정
@@ -1572,6 +1584,9 @@
             calculateAllTotals();
             
             console.log('초기화 완료');
+            
+            // 회계보고 초기 계산
+            calculateFinance();
         });
 
         // 자동 계산 설정
